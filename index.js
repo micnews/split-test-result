@@ -4,7 +4,9 @@ var Abba = require('abbajs').Abba;
 module.exports = function (variations) {
   var sorted = variations
     .filter(function (variation) {
-      return variation.stats.impressions && variation.stats.impressions > 0;
+      return variation.stats.impressions
+        && variation.stats.impressions > 0
+        && variation.stats.conversions > 0;
     })
     .sort(function (a, b) {
       var aConversionRate = a.stats.conversions / a.stats.impressions;

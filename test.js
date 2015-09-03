@@ -72,5 +72,21 @@ test('getSplitTestResult()', function (t) {
     }]
   }, 'Can return losers without declaring distinct winner');
 
+  var variations3 = [
+    {
+      id: 1,
+      stats: { impressions: 0, conversions: 0 }
+    },
+    {
+      id: 2,
+      stats: { impressions: 50, conversions: 0 }
+    }
+  ];
+
+  t.deepEqual(getSplitTestResult(variations3), {
+    distinctWinner: null,
+    losers: []
+  }, 'No winners or losers if impressions and/or conversions is 0');
+
   t.end();
 });
