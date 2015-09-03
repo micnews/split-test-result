@@ -1,7 +1,7 @@
 {
   "name": "split-test-result",
   "version": "0.0.0",
-  "description": "",
+  "description": "Calculate result of a split test experiment.",
   "main": "index.js",
   "scripts": {
     "format": "micstyle format",
