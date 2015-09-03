@@ -29,8 +29,19 @@ console.log(getSplitTestResult(variations));
 
 // Output:
 // {
-//   distinctWinner: 2,
-//   losers: [1, 3]
+//   distinctWinner: {
+//     id: 2,
+//     stats: { impressions: 200, conversions: 50 }
+//   },
+//   losers: [
+//     {
+//       id: 1,
+//       stats: { impressions: 100, conversions: 10 }
+//     },
+//     {
+//       id: 3,
+//       stats: { impressions: 150, conversions: 3 }
+//     }]
 // }
 ```
 

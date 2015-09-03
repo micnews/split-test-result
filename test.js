@@ -20,8 +20,17 @@ test('getSplitTestResult()', function (t) {
   ];
 
   t.deepEqual(getSplitTestResult(variations1), {
-    distinctWinner: 2,
-    losers: [1, 3]
+    distinctWinner: {
+      id: 2,
+      stats: { impressions: 200, conversions: 50 }
+    },
+    losers: [{
+      id: 1,
+      stats: { impressions: 100, conversions: 10 }
+    }, {
+      id: 3,
+      stats: { impressions: 150, conversions: 3 }
+    }]
   }, 'Should return distinct winner and losers');
 
   var variations2 = [
@@ -57,7 +66,10 @@ test('getSplitTestResult()', function (t) {
 
   t.deepEqual(getSplitTestResult(variations3), {
     distinctWinner: null,
-    losers: [3]
+    losers: [{
+      id: 3,
+      stats: { impressions: 190, conversions: 2 }
+    }]
   }, 'Can return losers without declaring distinct winner');
 
   t.end();

@@ -12,6 +12,13 @@ module.exports = function (variations) {
       return bConversionRate - aConversionRate;
     });
 
+  if (!sorted.length) {
+    return {
+      distinctWinner: null,
+      losers: []
+    };
+  }
+
   // Basline is the variation with highest conversionRate.
   var baseline = sorted.shift();
 
@@ -31,7 +38,7 @@ module.exports = function (variations) {
     );
     // pValue < 0.05 = Statistically significant difference from baseline.
     if (result.pValue < 0.05) {
-      losers.push(item.id);
+      losers.push(item);
     } else {
       // If any of the variations are not statistically significant worse
       // than baseline we do not have a distinct winner yet.
@@ -40,7 +47,7 @@ module.exports = function (variations) {
   });
 
   return {
-    distinctWinner: hasDistinctWinner ? baseline.id : null,
+    distinctWinner: hasDistinctWinner ? baseline : null,
     losers: losers
   };
 };
