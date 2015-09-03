@@ -1,0 +1,16 @@
+{
+  "name": "split-test-result",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "micstyle format",
+    "lint": "micstyle lint",
+    "test": "npm run lint"
+  },
+  "author": "mic.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@mic/micstyle": "^1.2.0"
+  }
+}
