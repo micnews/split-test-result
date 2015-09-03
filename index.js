@@ -25,8 +25,7 @@ module.exports = function (variations) {
   var experiment = new Abba.Experiment(
     sorted.length,
     baseline.stats.conversions,
-    baseline.stats.impressions,
-    0.5
+    baseline.stats.impressions
   );
   var hasDistinctWinner = true;
   var losers = [];
