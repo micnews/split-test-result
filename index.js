@@ -1,12 +1,15 @@
 'use strict';
 var Abba = require('abbajs').Abba;
 
-module.exports = function (variations) {
+module.exports = function (variations, opts) {
+  opts = opts || {};
+  var minImpressions = opts.minImpressions || 1;
+  var minConversions = opts.minConversions || 1;
   var sorted = variations
     .filter(function (variation) {
       return variation.stats.impressions
-        && variation.stats.impressions > 0
-        && variation.stats.conversions > 0;
+        && variation.stats.impressions >= minImpressions
+        && variation.stats.conversions >= minConversions;
     })
     .sort(function (a, b) {
       var aConversionRate = a.stats.conversions / a.stats.impressions;
@@ -37,6 +40,7 @@ module.exports = function (variations) {
       item.stats.conversions,
       item.stats.impressions
     );
+
     // pValue < 0.05 = Statistically significant difference from baseline.
     if (result.pValue < 0.05) {
       losers.push(item);
