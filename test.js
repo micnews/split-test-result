@@ -72,7 +72,7 @@ test('getSplitTestResult()', function (t) {
     }]
   }, 'Can return losers without declaring distinct winner');
 
-  var variations3 = [
+  var variations4 = [
     {
       id: 1,
       stats: { impressions: 0, conversions: 0 }
@@ -83,7 +83,7 @@ test('getSplitTestResult()', function (t) {
     }
   ];
 
-  t.deepEqual(getSplitTestResult(variations3), {
+  t.deepEqual(getSplitTestResult(variations4), {
     distinctWinner: null,
     losers: []
   }, 'No winners or losers if impressions and/or conversions is 0');
