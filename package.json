@@ -1,16 +1,20 @@
 {
   "name": "split-test-result",
   "version": "0.0.0",
-  "description": "",
+  "description": "Calculate result of a split test experiment.",
   "main": "index.js",
   "scripts": {
     "format": "micstyle format",
     "lint": "micstyle lint",
-    "test": "npm run lint"
+    "test": "npm run lint && tape test.js"
   },
   "author": "mic.com",
   "license": "MIT",
   "devDependencies": {
-    "@mic/micstyle": "^1.2.0"
+    "@mic/micstyle": "^1.2.0",
+    "tape": "^4.2.0"
+  },
+  "dependencies": {
+    "abbajs": "^0.1.4"
   }
 }
