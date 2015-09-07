@@ -1,15 +1,15 @@
-## @mic/split-test-result
+## split-test-result
 
 ### Install
 
 ```shell
-npm install @mic/split-test-result
+npm install split-test-result
 ```
 
 ### Usage
 
 ```js
-var getSplitTestResult = require('@mic/split-test-result');
+var getSplitTestResult = require('split-test-result');
 var variations = [
   {
     id: 1,
