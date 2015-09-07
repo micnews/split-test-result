@@ -88,5 +88,42 @@ test('getSplitTestResult()', function (t) {
     losers: []
   }, 'No winners or losers if impressions and/or conversions is 0');
 
+  var variations5 = [
+    {
+      id: 1,
+      stats: { impressions: 5, conversions: 3 }
+    },
+    {
+      id: 2,
+      stats: { impressions: 1100, conversions: 100 }
+    },
+    {
+      id: 2,
+      stats: { impressions: 1200, conversions: 90 }
+    }
+  ];
+
+  t.deepEqual(getSplitTestResult(variations5), {
+    distinctWinner: {
+      id: 1,
+      stats: { impressions: 5, conversions: 3 }
+    },
+    losers: [
+      {
+        id: 2,
+        stats: { impressions: 1100, conversions: 100 }
+      },
+      {
+        id: 2,
+        stats: { impressions: 1200, conversions: 90 }
+      }
+    ]
+  }, 'Can declare distinct winner with few impressions');
+
+  t.deepEqual(getSplitTestResult(variations5, { minImpressions: 1000 }), {
+    distinctWinner: null,
+    losers: []
+  }, 'Does not include variations below minImpressions limit');
+
   t.end();
 });
