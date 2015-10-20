@@ -16,5 +16,13 @@
   },
   "dependencies": {
     "abbajs": "^0.1.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micnews/split-test-result.git"
+  },
+  "bugs": {
+    "url": "https://github.com/micnews/split-test-result/issues"
+  },
+  "homepage": "https://github.com/micnews/split-test-result#readme"
 }
