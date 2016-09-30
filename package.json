@@ -12,7 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "@mic/micstyle": "^1.2.0",
-    "tape": "^4.2.0"
+    "tape": "^4.6.2"
   },
   "dependencies": {
     "abbajs": "^0.1.4"
